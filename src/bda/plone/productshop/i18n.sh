@@ -16,7 +16,7 @@ CURRENT_PATH=`pwd`
 CATALOGNAME="bda.plone.productshop"
 
 # List of languages
-LANGUAGES="en de"
+LANGUAGES="en en-nz en-gb de"
 
 # Create locales folder structure for languages
 install -d locales
