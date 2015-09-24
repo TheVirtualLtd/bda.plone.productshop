@@ -9,7 +9,7 @@ from zope.i18nmessageid import MessageFactory
 from Products.Five import BrowserView
 from Products.CMFCore.utils import getToolByName
 from plone.registry.interfaces import IRegistry
-from plone.app.contenttypes.behaviors.leadimage import ILeadImage
+#from plone.app.contenttypes.behaviors.leadimage import ILeadImage
 from bda.plone.ajax.batch import Batch
 from bda.plone.cart import get_object_by_uid
 from bda.plone.shop import permissions
@@ -103,7 +103,9 @@ class ProductTiles(BrowserView):
                     return
             elif brain.portal_type == 'Folder':
                 obj = brain.getObject()
-                if ILeadImage.providedBy(obj) and ILeadImage(obj).image:
+                # case leadimage
+                if hasattr(obj, 'image'):
+                #if ILeadImage.providedBy(obj) and ILeadImage(obj).image:
                     tile_items.append(obj)
                 else:
                     count = len(tile_items)
@@ -366,11 +368,11 @@ class Aspects(BrowserView):
         return getattr(context, definition.attribute, None)
 
     def variant_values(self, definition):
-        ret = set()
+        ret = []
         for variant in self.variants:
             value = self.variant_value(definition, variant)
-            if value:
-                ret.add(value)
+            if value and value not in ret:
+                ret.append(value)
         return ret
 
     def create_aspect(self, title, name):
