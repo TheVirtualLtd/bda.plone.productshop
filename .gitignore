@@ -13,7 +13,16 @@
 /devsrc/
 /parts/
 /vpython/
+/env/
 /var/
 /dist/
 /coverage/
 /report/
+.idea/
+include/
+lib/
+local/
+buildout-cache/
+htmlcov/
+
+

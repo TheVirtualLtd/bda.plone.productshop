@@ -2,10 +2,21 @@
 Changelog
 =========
 
-0.8.dev0
+0.9.dev0
 --------
 
 - no changes yet.
+
+
+0.8
+---
+
+- Add ajax overlay with large product image in product view when clicking on
+  thumb.
+  [rnix]
+
+- Improve tiles view.
+  [rnix]
 
 
 0.7
